@@ -3,7 +3,7 @@ class Player < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def userName 
-    self.email.split(/@/).first
+    self.email.split(/@/).first[0, 6]
   end
 
   def self.reset_score(current_player)

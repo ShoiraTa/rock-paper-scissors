@@ -1,18 +1,20 @@
 <div data-controller = "game">
 
   <div class ="game_scores mt-4" id="game_scores"> 
-    <h2 class="game_score">
-      <% if current_player %> 
-           <%= current_player.score%> : <%= @curb.score%>
-        <% else %>
-           <%= @guest.score%> : <%= @curb.score%>
-      <% end %>
+ 
+      <h2 class="game_score">
+      <%= @current_player.userName%> : <%= @current_player.score%>
     </h2>
-    <div>
-      <%= button_to 'Reset', game_reset_score_path, class: 'reset-btn' %>
+        <div>
+      <%= button_to 'Reset scores', game_reset_score_path, class: 'reset-btn' %>
     </div>
-  </div>
+    <h2 class="game_score">
+      <%= @curb.userName %> : <%= @curb.score%>
+    </h2>
 
+
+
+</div>
 
 
   <div class="game-container" > 
@@ -24,7 +26,7 @@
     <div id="turbo_winner">
       <%= render 'winner', curb_throw: @curb_throw.item, winner: '' %>
     </div>
-    <div class="mb-5 mt-4">
+    <div class="mb-4 mt-4">
      <p >Rock Paper Scissors is a zero sum game that is usually played by two people using their hands and no tools. The idea is to make shapes with an outstretched hand where each shape will have a certain degree of power and will lead to an outcome.</p>
     </div>
    

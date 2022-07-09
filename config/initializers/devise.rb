@@ -36,7 +36,7 @@ Devise.setup do |config|
   # Configure the parent class to the devise controllers.
   
   #! Change parent controller with custom controller
-  config.parent_controller = 'Users::DeviseController'
+  config.parent_controller = 'Players::DeviseController'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
