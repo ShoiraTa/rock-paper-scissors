@@ -1,0 +1,45 @@
+<div data-controller = "game">
+
+  <div class ="game_scores mt-4" id="game_scores"> 
+    <h2 class="game_score">
+      <% if current_player %> 
+           <%= current_player.score%> : <%= @curb.score%>
+        <% else %>
+           <%= @guest.score%> : <%= @curb.score%>
+      <% end %>
+    </h2>
+    <div>
+      <%= button_to 'Reset', game_reset_score_path, class: 'reset-btn' %>
+    </div>
+  </div>
+
+
+
+  <div class="game-container" > 
+    <h1 class="mt-4">ROCK – PAPER – SCISSORS</h1>
+
+    <div id="turbo_loading">
+      <%= render 'curb_choosing', player_throw: 'paper' %>
+    </div>
+    <div id="turbo_winner">
+      <%= render 'winner', curb_throw: @curb_throw.item, winner: '' %>
+    </div>
+    <div class="mb-5 mt-4">
+     <p >Rock Paper Scissors is a zero sum game that is usually played by two people using their hands and no tools. The idea is to make shapes with an outstretched hand where each shape will have a certain degree of power and will lead to an outcome.</p>
+    </div>
+   
+    <h3>SELECT YOUR BET</h3>
+    <div class="game_cards"> 
+      <% @throws.each do |throw| %>
+      <%= button_to game_update_scores_path(player_item: throw.item, curb_item: @curb_throw.item) do %> 
+        <div class="throw-card" data-action="click->game#submitBet"> 
+          <div class="throw-card_img">
+            <%= image_tag "#{throw.item}.svg", width: "#{throw.item == "scissors"? '50' : '60'}" %>
+          </div>
+          <h3 class="throw-card_item"> <%= throw.item %></h3>
+        </div>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+</div>

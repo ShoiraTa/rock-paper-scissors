@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :players
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  namespace :api do
+    namespace :v1 do 
+      resources :throws, defaults: {format: :json}
+    end
+  end
+  post 'game/update_scores'
+  post 'game/reset_score'
+  root "game#index"
 end
