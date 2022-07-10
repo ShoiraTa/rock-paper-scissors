@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rps</title>
+    <title>Rock - Paper - Scissors</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta
+        property="og:image"
+        content="https://user-images.githubusercontent.com/77038610/178137553-cad9bc2d-c091-451c-8be3-5344c289b0b2.png"
+      />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,16 +17,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@300&display=swap" rel="stylesheet">
-    
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-  <%= render 'layouts/navbar' %>
-  <div class="container container-inner">
-
-      <%= yield %>
+    <%= render 'layouts/navbar' %>
+    <%= render 'layouts/messages' %>
+    <div class="container container-inner">
+    <%= yield %>
   </div>
 
   </body>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </html>

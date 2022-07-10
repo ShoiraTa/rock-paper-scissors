@@ -13,18 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
  body{
   font-family: 'Montserrat', sans-serif!important;
   box-sizing: border-box;
  }
 
  .game-container{
-  width: 700px;
+  max-width: 700px;
   margin: auto;
   text-align: center;
   margin-top: 1rem;
   position: relative;
  }
+
  h1{
   color: #36006C!important;
   font-size: 3rem!important;
@@ -88,7 +90,6 @@
   right: 0;
   left: 0;
   background: #FFFFFF 0% 0% no-repeat padding-box;
-  /* opacity: 0.72; */
  }
 
  .game_winner h3{
@@ -207,7 +208,6 @@
   width: 100%;
   padding: 7px;
   border-radius: 5px;
-  border: 2px solid #dadada;
 }
 
 .new_player input:focus, .edit_player input:focus { 
@@ -223,3 +223,8 @@
 .new_player{
   width: 300px;
 }
+
+#navbar-nav {
+  flex-direction: row!important;
+}
+
