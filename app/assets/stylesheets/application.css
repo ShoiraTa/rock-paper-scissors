@@ -91,7 +91,7 @@
   /* opacity: 0.72; */
  }
 
- .game_winner-container h3{
+ .game_winner h3{
   color: #36006C;
   font-size: 32px;
  }
@@ -109,9 +109,6 @@
   margin: auto;
  }
 
-.game_bets{
-  margin-top: 4rem;
-}
 
  .game-winner_container{
   width: 400px;
@@ -123,6 +120,7 @@
  }
 
  .bets-container{
+  margin-top: 4rem;
   display: flex;
   justify-content: space-around;
  }

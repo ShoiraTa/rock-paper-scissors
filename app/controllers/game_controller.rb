@@ -9,8 +9,8 @@ class GameController < ApplicationController
   def update_scores
     @player_throw = params[:player_item]
     @curb_throw = params[:curb_item]
-
     @winner = Throw.player_won(@curb_throw, @player_throw, @current_player)
+
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
@@ -20,13 +20,8 @@ class GameController < ApplicationController
         ]
       end
     end
-  end
 
-  # def destroy
-  #   super do
-  #     Player.reset_score(@current_player)
-  #   end
-  # end
+  end
 
   def reset_score
     Player.reset_score(@current_player)

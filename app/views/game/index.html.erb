@@ -1,25 +1,14 @@
 <div data-controller = "game">
-
   <div class ="game_scores mt-4" id="game_scores"> 
- 
-      <h2 class="game_score">
-      <%= @current_player.user_name%> : <%= @current_player.score%>
-    </h2>
-        <div>
+    <h2 class="game_score"> <%= @current_player.user_name%> : <%= @current_player.score%> </h2>
+    <div>
       <%= button_to 'Reset scores', game_reset_score_path, class: 'reset-btn', id: 'reset'   %>
     </div>
-    <h2 class="game_score">
-      <%= @curb.user_name %> : <%= @curb.score%>
-    </h2>
-
-
-
-</div>
-
+    <h2 class="game_score"><%= @curb.user_name %> : <%= @curb.score%></h2>
+  </div>
 
   <div class="game-container" > 
     <h1 class="mt-4">ROCK – PAPER – SCISSORS</h1>
-
     <div id="turbo_loading">
       <%= render 'curb_choosing', player_throw: 'paper' %>
     </div>
@@ -33,13 +22,13 @@
     <h3>SELECT YOUR BET</h3>
     <div class="game_cards"> 
       <% @throws.each do |throw| %>
-      <%= button_to game_update_scores_path(player_item: throw.item, curb_item: @curb_throw.item), :id => "#{throw.item}" do %> 
-        <div class="throw-card" data-action="click->game#submitBet"> 
-          <div class="throw-card_img">
-            <%= image_tag "#{throw.item}.svg", width: "#{throw.item == "scissors"? '50' : '60'}" %>
+        <%= button_to game_update_scores_path(player_item: throw.item, curb_item: @curb_throw.item), :id => "#{throw.item}" do %> 
+          <div class="throw-card" data-action="click->game#submitBet"> 
+            <div class="throw-card_img">
+              <%= image_tag "#{throw.item}.svg", width: "#{throw.item == "scissors"? '50' : '60'}" %>
+            </div>
+            <h3 class="throw-card_item"> <%= throw.item %></h3>
           </div>
-          <h3 class="throw-card_item"> <%= throw.item %></h3>
-        </div>
         <%end%>
       <%end%>
     </div>

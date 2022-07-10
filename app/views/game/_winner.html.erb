@@ -1,32 +1,32 @@
 <div class="game-winner"  data-game-target='winner' hidden> 
-<% if winner!= ''%>
-  <div class="game-winner_container"> 
-    <div>
-      <% case winner%>
-        <% when 'player'%>
-        <h3> YOU WON! </h3>
-        <p> <%= "Curb with #{curb_throw} looses" %> </p>
-        <% when 'curb'%>
-          <h3>YOU LOST!</h3>
-          <p> <%= "Curb with #{curb_throw} wins" %> </p>
-        <% when 'tie'%>
-          <h3>YOU HAVE A TIE!</h3>
-          <p> <%= "Curb also selected #{curb_throw}" %> </p>
-        <%end%>
-    </div>
-    
-    <div class="game-winner_body">
-      <div class="throw-info">
-      <%if curb_throw != nil %>
-        <div> 
-          <%= image_tag "#{curb_throw}.svg",  width: '60' %></div>
+  <% if winner!= ''%>
+    <div class="game-winner_container"> 
+      <div>
+        <% case winner %>
+          <% when 'player' %>
+            <h3> YOU WON! </h3>
+            <p> <%= "Curb with #{curb_throw} looses" %> </p>
+          <% when 'curb'%>
+            <h3>YOU LOST!</h3>
+            <p> <%= "Curb with #{curb_throw} wins" %> </p>
+          <% when 'tie'%>
+            <h3>YOU HAVE A TIE!</h3>
+            <p> <%= "Curb also selected #{curb_throw}" %> </p>
+        <% end %>
+      </div>
+      
+      <div class="game-winner_body">
+        <div class="throw-info">
+          <%if curb_throw != nil %>
+            <div> 
+              <%= image_tag "#{curb_throw}.svg",  width: '60' %></div>
+            </div>
+          <% end %>
+          <div class="game-winner_button">
+            <%= link_to 'OK', root_path, class: "ok-btn" %>
+          </div>
         </div>
-      <% end %>
-      <div class="game-winner_button">
-        <%= link_to 'OK', root_path, class: "ok-btn" %>
       </div>
     </div>
-  </div>
-        
-  <%end%>
+  <% end %>
 </div>
